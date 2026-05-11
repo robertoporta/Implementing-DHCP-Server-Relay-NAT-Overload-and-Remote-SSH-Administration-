@@ -13,7 +13,7 @@ A centralized DNS server (8.8.8.8) is distributed via DHCP to allow name resolut
 The following screenshot shows the topology before configuration.
 </p>
 <p>
-
+<img width="781" height="501" alt="image" src="https://github.com/user-attachments/assets/457a6e4e-90c2-469e-b68f-0baaf96cca9b" />
 </p>
 <br>
 

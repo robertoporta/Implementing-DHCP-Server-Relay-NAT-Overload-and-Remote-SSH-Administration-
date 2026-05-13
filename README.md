@@ -1,6 +1,5 @@
 # Implementing-DHCP-Server-Relay-NAT-Overload-and-Remote-SSH-Administration-
-
-<h2>Implementing DHCP Server Relay NAT Overload and-Remote SSH Administration</h2>
+<h1>Implementing DHCP Server Relay NAT Overload and-Remote SSH Administration</h1>
 
 <p>
 - This lab demonstrates four core networking concepts: Dynamic Host Configuration Protocol (DHCP), Network Address Translation (NAT Overload), DHCP relay using the “ip helper-address” feature, and Secure Shell (SSH) for remote management. The topology represents an enterprise network where Router 1 serves as the main gateway and Router 2 acts as a remote branch dependent on centralized services.

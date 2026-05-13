@@ -116,7 +116,8 @@ The following screenshot shows the topology before configuration.
 <img width="760" height="187" alt="image" src="https://github.com/user-attachments/assets/5a43231f-04ca-4fcb-b8bf-46b113802beb" />
 </p>
 <p>
-<img width="773" height="281" alt="image" src="https://github.com/user-attachments/assets/9da5437f-accb-40ef-b3d7-6bb1d52c811f" />
+<img width="777" height="282" alt="image" src="https://github.com/user-attachments/assets/ac907731-1222-457f-8043-60dc72fdad1e" />
+ />
 </p>
 <br>
 

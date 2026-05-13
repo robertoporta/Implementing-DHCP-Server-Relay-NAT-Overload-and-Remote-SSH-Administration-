@@ -83,6 +83,84 @@ The following screenshot shows the topology before configuration.
 <br>
 
 <p>
+- After generating traffic with pings from some of the active PCs in the user network, the NAT translation table on R1 populates to show active sessions. Each entry maps an Inside Local address (the private IP of the PC) to the Inside Global address (the public IP of the R1 WAN interface). Although the unique source port used for this translation is not visible in this specific PDU shown in the previous step (as ICMP is a Layer 3 protocol that lacks traditional TCP/UDP port fields) the router still tracks the session internally using the ICMP Identifier to ensure the reply returns to the correct host.
+</p>
+<p>
+<img width="769" height="266" alt="image" src="https://github.com/user-attachments/assets/31dcebbf-6373-4631-b22e-0921af691ab5" />
+</p>
+<br>
+
+<p>
+- Now onto the second router (R2), which will be configured through SSH to ensure secure configuration changes over the WAN link by encrypting credentials and session data. This is required because R2 is being accessed over the network rather than through direct console access as it is part of the remote site of the organization. A network administrator at the remote site has already completed the initial setup of the interfaces and of SSH. For SSH to be enabled in R2, the following requirements were configured: a local username, domain name (robertoporta.net), RSA key generation, and enabling of all VTY lines (0 through 15). SSH version 2 was also specified.
+</p>
+<p>
+<img width="775" height="383" alt="image" src="https://github.com/user-attachments/assets/c423195c-13e6-464c-b5fc-9d8b7aa26309" />
+</p>
+<br>
+
+<p>
+- In addition to R2’s SSH configuration, the network administrator of the remote site also had to configure its interfaces. The 172.16.30.0/27 subnet is used for the remote LAN where end devices will receive IP addresses via DHCP relay and connect locally to the remote switch via interface g0/1. Interface g0/1 is configured with 172.16.30.254/24 for the remote LAN subnet, while interface g0/0 is configured with 203.0.113.5/30 for the WAN link connecting this remote site to the internet. This separation allows the router to simulate a branch network that depends on external services, such as DHCP provided by another router. Lastly, static routes are added so Router 2 can reach R1, the admin network, and the user network via the next-hop IP 203.0.113.6 on the WAN link. 
+</p>
+<p>
+<img width="775" height="387" alt="image" src="https://github.com/user-attachments/assets/00cea1b4-cb22-4306-972e-8726dd0130af" />
+</p>
+<br>
+
+<p>
+- Now that R2 has SSH configured and its interfaces properly set up, I establish a remote session from my laptop command prompt using the router’s WAN IP address (203.0.113.5). I am connecting my laptop to Switch 1 using a Fast Ethernet cable to pull a temporary IP address from the Admin DHCP pool, effectively acting as a mobile management station. While the laptop is not a permanent member of the Admin Network, this connection allows me to verify that the management segment has the correct permissions and routing path to reach the remote site. This setup tests the "In-Band" management path, forcing the SSH traffic to traverse from the local switch, through R1, and across the simulated internet link. Successful login confirms that SSH authentication and end-to-end routing connectivity across the WAN are functioning correctly before the laptop is disconnected. I am now able to configure R2 from my laptop back at the admin network.
+</p>
+<p>
+<img width="775" height="492" alt="image" src="https://github.com/user-attachments/assets/3e19e5f4-b843-49e3-9651-664b30d6a9ad" />
+</p>
+<p>
+<img width="760" height="187" alt="image" src="https://github.com/user-attachments/assets/5a43231f-04ca-4fcb-b8bf-46b113802beb" />
+</p>
+<p>
+<img width="773" height="281" alt="image" src="https://github.com/user-attachments/assets/9da5437f-accb-40ef-b3d7-6bb1d52c811f" />
+</p>
+<br>
+
+<p>
+- 
+</p>
+<p>
+
+</p>
+<br>
+
+<p>
+- 
+</p>
+<p>
+
+</p>
+<br>
+
+<p>
+- 
+</p>
+<p>
+
+</p>
+<br>
+
+<p>
+- 
+</p>
+<p>
+
+</p>
+<br>
+
+<p>
+- 
+</p>
+<p>
+
+</p>
+<br>
+
+<p>
 - 
 </p>
 <p>

@@ -122,73 +122,41 @@ The following screenshot shows the topology before configuration.
 <br>
 
 <p>
-- 
+- To provide IP addresses to hosts in the remote site, I have to setup DHCP relay. Devices on the 172.16.30.0/27 remote LAN subnet cannot directly reach the DHCP server because DHCP broadcasts do not cross router boundaries. To resolve this, I configured the ip helper-address on the G0/1 interface of R2. This command converts local DHCP broadcasts into unicast packets and forwards them to the centralized DHCP server at 203.0.113.1 on R1.
+Additionally, I configured R2 with a global DNS pointer to ensure the router itself can resolve enterprise domain names during remote troubleshooting. While the ip domain-lookup command is enabled by default on most modern Cisco IOS versions, explicitly including it in the configuration is a professional best practice. This ensures consistent name resolution behavior if the configuration is ever migrated to older legacy hardware where the feature might be disabled by default.
 </p>
 <p>
-
-</p>
-<br>
-
-<p>
-- 
-</p>
-<p>
-
+<img width="734" height="170" alt="image" src="https://github.com/user-attachments/assets/2ba9ae13-094c-4ec7-9cfb-aab00d11b264" />
 </p>
 <br>
 
 <p>
-- 
+- Now that DHCP relay has been configured, the devices in the remote site are able to obtain IP addresses with DHCP, without the devices being able to directly reach the DHCP server at R1. Just like the the other subnets, the IPs given out start after the excluded addresses.
 </p>
 <p>
-
-</p>
-<br>
-
-<p>
-- 
+<img width="780" height="185" alt="image" src="https://github.com/user-attachments/assets/551ff06f-7754-429c-8413-bc8e46d4519c" />
 </p>
 <p>
-
+<img width="780" height="187" alt="image" src="https://github.com/user-attachments/assets/6433870c-d7a8-41c4-9726-3ce07d5252ef" />
+</p>
+<p>
+<img width="780" height="182" alt="image" src="https://github.com/user-attachments/assets/ca643e53-ad64-4859-9c81-7f12753b97df" />
 </p>
 <br>
 
 <p>
-- 
+- To conclude the lab, I disconnected my management laptop and requested the remote site administrator perform final connectivity validation from the remote network. First, PC9 successfully pinged PC2 in the admin network, confirming internal routing between sites. Next, PC10 reached PC5 in the user network, verifying that the branch can access primary site resources. Finally, PC11 pinged the domain robertoporta.net (resolving to the 1.1.1.1 address used in a previous test), the success of this test confirms that DNS services, DHCP relay, and external routing are all fully operational across the integrated network. 
 </p>
 <p>
-
-</p>
-<br>
-
-<p>
-- 
+<img width="770" height="492" alt="image" src="https://github.com/user-attachments/assets/40f9f980-1898-42d5-b467-2a40403d14c2" />
 </p>
 <p>
-
-</p>
-<br>
-
-<p>
-- 
+<img width="775" height="357" alt="image" src="https://github.com/user-attachments/assets/755b0ba2-3358-4c13-a4eb-69eb048acd36" />
 </p>
 <p>
-
-</p>
-<br>
-
-<p>
-- 
+<img width="771" height="362" alt="image" src="https://github.com/user-attachments/assets/9a27d499-3907-4fe6-bf28-8baad7949528" />
 </p>
 <p>
-
-</p>
-<br>
-
-<p>
-- 
-</p>
-<p>
-
+<img width="771" height="364" alt="image" src="https://github.com/user-attachments/assets/902ea7c0-15e3-45b5-97f6-ad20f0792dca" />
 </p>
 <br>

@@ -158,4 +158,3 @@ Additionally, I configured R2 with a global DNS pointer to ensure the router its
 <p>
 <img width="771" height="364" alt="image" src="https://github.com/user-attachments/assets/902ea7c0-15e3-45b5-97f6-ad20f0792dca" />
 </p>
-<br>
